@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-link"></i> URL Shortener</h1>
+        </header>
+        
+        <main>
+            <section class="url-form">
+                <form id="shorten-form">
+                    <div class="input-group">
+                        <input type="url" id="url-input" placeholder="Enter a long URL" required>
+                        <button type="submit" id="shorten-button">Shorten</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="result-container hidden" id="result-container">
+                <h3>Your shortened URL:</h3>
+                <div class="shortened-url">
+                    <input type="text" id="shortened-url" readonly>
+                    <button id="copy-button" title="Copy to clipboard">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="url-info">
+                    <p>Original URL: <span id="original-url"></span></p>
+                    <p>Created on: <span id="created-date"></span></p>
+                </div>
+                <div class="button-group">
+                    <button id="stats-button" class="secondary-button">
+                        <i class="fas fa-chart-bar"></i> View Stats
+                    </button>
+                    <button id="new-url-button" class="secondary-button">
+                        <i class="fas fa-plus"></i> Shorten Another
+                    </button>
+                </div>
+            </section>
+            
+            <section class="stats-container hidden" id="stats-container">
+                <h3>URL Statistics</h3>
+                <div class="stats-info">
+                    <div class="stat-item">
+                        <span class="stat-label">Short Code:</span>
+                        <span id="stat-shortcode"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Created:</span>
+                        <span id="stat-created"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Updated:</span>
+                        <span id="stat-updated"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Access Count:</span>
+                        <span id="stat-access-count"></span>
+                    </div>
+                </div>
+                <button id="back-button" class="secondary-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 URL Shortener</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
